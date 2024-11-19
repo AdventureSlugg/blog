@@ -41,7 +41,6 @@ jobs:
             exit 0
           elif [ -f "${{ github.workspace }}/the-adventure-slug/package.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
-            cat $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
             exit 0
@@ -49,12 +48,11 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-      - name: Change Directory
-        run: cd ./the-adventure-slug
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          run: cd ./the-adventure-slug
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
