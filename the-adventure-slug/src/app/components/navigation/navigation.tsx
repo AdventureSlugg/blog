@@ -1,6 +1,5 @@
 import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/navbar";
 import Link from "next/link";
-import styles from './navigation.module.css'
 import { Url } from "next/dist/shared/lib/router/router";
 
 interface LinkItem {
